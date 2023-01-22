@@ -1,6 +1,6 @@
 #!/bin/bash
 set -eux
-source "$(dirname "$0")/common.bash"
+source "$(dirname "$0")/common.sh"
 
 # if [ ! -d "$HOME/.ssh" ]; then
 #   mkdir -p "$HOME/.ssh"
