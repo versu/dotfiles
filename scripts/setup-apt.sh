@@ -16,4 +16,4 @@ sudo apt install -y \
 
 ### zsh ###
 sudo apt install -y zsh
-chsh "$(type zsh)"
+chsh "$(which zsh)"
