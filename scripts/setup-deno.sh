@@ -2,7 +2,7 @@
 
 set -eux
 
-source "$(dirname "$0")/common.bash"
+source "$(dirname "$0")/common.sh"
 
 export DENO_INSTALL="${DENO_INSTALL:-$XDG_DATA_HOME/deno}"
 echo "Installing Deno..."
