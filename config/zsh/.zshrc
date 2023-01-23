@@ -54,6 +54,7 @@ export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
 zinit ice lucid depth"1" blockf
 zinit light yuki-yano/zeno.zsh
 
+export FZF_DEFAULT_OPTS='--reverse'
 if [[ -n $ZENO_LOADED ]]; then
   bindkey ' '  zeno-auto-snippet
   bindkey '^m' zeno-auto-snippet-and-accept-line
