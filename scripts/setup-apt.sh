@@ -11,7 +11,6 @@ sudo apt install -y \
   zip \
   jq \
   git \
-  fzf \
   tree
 
 ### zsh ###

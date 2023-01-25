@@ -6,11 +6,11 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
+# zinit light-mode for \
+#     zdharma-continuum/zinit-annex-as-monitor \
+#     zdharma-continuum/zinit-annex-bin-gem-node \
+#     zdharma-continuum/zinit-annex-patch-dl \
+#     zdharma-continuum/zinit-annex-rust
 
 ### path ###
 
@@ -26,15 +26,15 @@ zstyle :prompt:pure:path color cyan
 
 ### plugin ###
 
-# ---------------------------------------------------------
-# plugin list
-# ---------------------------------------------------------
-
 zinit wait lucid blockf light-mode for \
-    atload'async_init' mafredri/zsh-async \
-    zsh-users/zsh-autosuggestions \
-    zsh-users/zsh-completions \
-    zdharma-continuum/fast-syntax-highlighting
+  atload'async_init' mafredri/zsh-async \
+  zsh-users/zsh-autosuggestions \
+  zsh-users/zsh-completions \
+  zdharma-continuum/fast-syntax-highlighting
+
+### fzf ###
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 ### ls-colors ###
 
@@ -50,16 +50,19 @@ zinit light seebi/dircolors-solarized
 # zsh fuzzy completion and utility plugin with Deno.
 # yuki-yano/zeno.zsh(https://github.com/yuki-yano/zeno.zsh#user-configuration-file-example)
 # ---------------------------------------------------------
-export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
-zinit ice lucid depth"1" blockf
-zinit light yuki-yano/zeno.zsh
 
-export FZF_DEFAULT_OPTS='--reverse'
-if [[ -n $ZENO_LOADED ]]; then
-  bindkey ' '  zeno-auto-snippet
+__zeno_atload() {
+  bindkey ' ' zeno-auto-snippet
   bindkey '^m' zeno-auto-snippet-and-accept-line
   bindkey '^i' zeno-completion
-  bindkey '^g' zeno-ghq-cd
   bindkey '^r' zeno-history-selection
   bindkey '^x' zeno-insert-snippet
-fi
+  # bindkey '^g' zeno-ghq-cd
+}
+
+export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
+zinit wait lucid light-mode for \
+  atload'__zeno_atload' \
+  @'yuki-yano/zeno.zsh'
+
+export FZF_DEFAULT_OPTS='--reverse'
