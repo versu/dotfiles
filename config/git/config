@@ -1,3 +1,7 @@
 [user]
 	name = nishitani
-	email = kindberwindow@gmal.com
+	email = kindberwindow@gmail.com
+
+[ghq]
+    user = NagayamaRyoga
+    root = ~/repos

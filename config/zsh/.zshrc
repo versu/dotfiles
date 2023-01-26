@@ -15,6 +15,7 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 ### path ###
 
 export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
 
 ### theme
 zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
@@ -57,7 +58,7 @@ __zeno_atload() {
   bindkey '^i' zeno-completion
   bindkey '^r' zeno-history-selection
   bindkey '^x' zeno-insert-snippet
-  # bindkey '^g' zeno-ghq-cd
+  bindkey '^g' zeno-ghq-cd
 }
 
 export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
