@@ -7,7 +7,6 @@ sudo apt update && sudo apt upgrade -y
 ### common ###
 sudo apt install -y \
   build-essential \
-  python3-pip \
   zip \
   jq \
   git \
