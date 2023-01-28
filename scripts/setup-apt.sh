@@ -10,7 +10,8 @@ sudo apt install -y \
   zip \
   jq \
   git \
-  tree
+  tree \
+  ripgrep
 
 ### zsh ###
 sudo apt install -y zsh
