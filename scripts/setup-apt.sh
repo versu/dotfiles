@@ -11,7 +11,8 @@ sudo apt install -y \
   jq \
   git \
   tree \
-  ripgrep
+  ripgrep \
+  rename
 
 ### zsh ###
 sudo apt install -y zsh
