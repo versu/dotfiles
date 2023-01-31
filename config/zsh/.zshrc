@@ -17,14 +17,6 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
-### theme
-zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
-zinit light sindresorhus/pure
-
-# customize style (https://github.com/sindresorhus/pure#:~:text=%E2%89%A1-,Zstyle%20options,-Showing%20git%20stash)
-zstyle :prompt:pure:git:branch color yellow
-zstyle :prompt:pure:path color cyan
-
 ### plugin ###
 
 zinit wait lucid blockf light-mode for \
@@ -39,13 +31,13 @@ zinit wait lucid blockf light-mode for \
 
 ### ls-colors ###
 
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 
 # dircolors(LS_COLORS)
 # これで上手くいくはずだが。。。
 # lsコマンドのデフォルトのフォルダ色の青も出ていない。どこでおかしくなったか確認が必要か
-zinit ice atload'eval `dircolors $PWD/dircolors.ansi-universal`' as"null"
-zinit light seebi/dircolors-solarized
+# zinit ice atload'eval `dircolors $PWD/dircolors.ansi-universal`' as"null"
+# zinit light seebi/dircolors-solarized
 
 # ---------------------------------------------------------
 # zsh fuzzy completion and utility plugin with Deno.
@@ -67,3 +59,27 @@ zinit wait lucid light-mode for \
   @'yuki-yano/zeno.zsh'
 
 export FZF_DEFAULT_OPTS='--reverse'
+
+### asdf ###
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
+source "${ASDF_DATA_DIR}/asdf.sh"
+
+### starship ###
+export STARSHIP_CONFIG="${XDG_CONFIG_HOME}"/starship/starship.toml
+zinit ice as"command" from"gh-r" atload'eval "$(starship init zsh)"'
+zinit light starship/starship
+
+### theme(lsd) ###
+
+# export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32"
+
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+zinit ice as"command" from"gh-r" pick"lsd*/lsd"
+zinit light Peltoche/lsd
+
