@@ -49,7 +49,7 @@ __zeno_atload() {
   bindkey '^m' zeno-auto-snippet-and-accept-line
   bindkey '^i' zeno-completion
   bindkey '^r' zeno-history-selection
-  bindkey '^x' zeno-insert-snippet
+  # bindkey '^x' zeno-insert-snippet
   bindkey '^g' zeno-ghq-cd
 }
 
