@@ -5,3 +5,5 @@
 [ghq]
     user = NagayamaRyoga
     root = ~/repos
+[core]
+	editor = code --wait
