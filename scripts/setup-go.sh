@@ -3,6 +3,7 @@
 set -eux -o pipefail
 
 source "$(dirname "$0")/common.sh"
+export GOPATH="$XDG_DATA_HOME/go"
 
 ### prepare install ###
 sudo rm -rf "$XDG_DATA_HOME"/go
@@ -14,4 +15,4 @@ sudo rm -rf "$XDG_DATA_HOME"/go
 curl -fsSL https://go.dev/dl/go1.19.5.linux-amd64.tar.gz | tar xzf - -C "$XDG_DATA_HOME"
 
 ### install go-pkg ###
-go install github.com/x-motemen/ghq@latest
+"$GOPATH/bin/go" install github.com/x-motemen/ghq@latest
