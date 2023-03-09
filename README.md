@@ -1,3 +1,7 @@
+# Requirement
+
+Ubuntu-20.04
+
 # How to use
 
 WIP

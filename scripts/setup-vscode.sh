@@ -5,7 +5,7 @@ set -eux
 ### common ###
 code --install-extension eamodio.gitlens
 # code --install-extension mhutchie.git-graph
-# code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-azuretools.vscode-docker
 # code --install-extension patbenatar.advanced-new-file
 # code --install-extension sleistner.vscode-fileutils
  

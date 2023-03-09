@@ -2,6 +2,8 @@
 set -eux
 
 ### install Docker Engine ###
+
+# install docker engine
 sudo apt update
 
 sudo apt install ca-certificates curl gnupg lsb-release
@@ -14,8 +16,12 @@ sudo apt update
 
 sudo apt install docker-ce docker-ce-cli containerd.io
 
+# docker can only be run with root user privileges by default, so add privileges to the user
+sudo gpasswd -a $(whoami) docker
+sudo chmod 666 /var/run/docker.sock
 
 ### install Docker Compose ###
 
 # check install version from https://github.com/docker/compose/releases, and modify install version properly
 sudo curl -SL https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
