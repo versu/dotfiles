@@ -16,9 +16,14 @@ sudo apt update
 
 sudo apt install docker-ce docker-ce-cli containerd.io
 
-# docker can only be run with root user privileges by default, so add privileges to the user
-sudo gpasswd -a $(whoami) docker
-sudo chmod 666 /var/run/docker.sock
+# docker can only be run with root user privileges by default, so add privileges to the user(https://phoenixnap.com/kb/docker-permission-denied)
+# sudo gpasswd -a $(whoami) docker
+# sudo chmod 666 /var/run/docker.sock
+
+# if vscode-docker extension is used. execute command "sudo chmod 666 /var/run/docker.sock"(TODO: this command must run every docker restart...)
+sudo groupadd -f docker
+sudo usermod -aG docker $USER
+newgrp docker
 
 ### install Docker Compose ###
 
