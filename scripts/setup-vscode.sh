@@ -6,8 +6,7 @@ set -eux
 code --install-extension eamodio.gitlens
 # code --install-extension mhutchie.git-graph
 code --install-extension ms-azuretools.vscode-docker
-# code --install-extension patbenatar.advanced-new-file
-# code --install-extension sleistner.vscode-fileutils
+code --install-extension wmaurer.change-case
  
 ### Python ##
 # code --install-extension ms-python.python
