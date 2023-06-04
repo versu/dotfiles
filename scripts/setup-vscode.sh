@@ -7,6 +7,7 @@ code --install-extension eamodio.gitlens
 # code --install-extension mhutchie.git-graph
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension wmaurer.change-case
+code --install-extension dotjoshjohnson.xml
  
 ### Python ##
 # code --install-extension ms-python.python
