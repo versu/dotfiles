@@ -81,7 +81,7 @@ alias lla='ls -la'
 alias lt='ls --tree'
 
 zinit ice as"command" from"gh-r" pick"lsd*/lsd"
-zinit light Peltoche/lsd
+zinit light lsd-rs/lsd
 
 ### keybind ###
 
