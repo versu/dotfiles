@@ -16,6 +16,7 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 ### plugin ###
 
@@ -206,3 +207,14 @@ function widget::select-all() {
 }
 zle -N widget::select-all
 zle_highlight=('paste:none')
+
+# pnpm
+export PNPM_HOME="/home/nishitani/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# bun completions
+[ -s "/home/nishitani/.local/share/bun/_bun" ] && source "/home/nishitani/.local/share/bun/_bun"
