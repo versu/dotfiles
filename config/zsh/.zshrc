@@ -199,5 +199,11 @@ function widget::select-all() {
 zle -N widget::select-all
 zle_highlight=('paste:none')
 
+# ---------------------------------------------------------
+# mise
+# ---------------------------------------------------------
+eval "$(mise activate bash)"
+
+
 # # bun completions
 # [ -s "/home/nishitani/.local/share/bun/_bun" ] && source "/home/nishitani/.local/share/bun/_bun"
