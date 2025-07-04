@@ -1,32 +1,26 @@
-#! /bin/bash
-set -eux
-
-### install Docker Engine ###
-
-# install docker engine
+#!/bin/bash
+# 事前準備(インストールに必要なパッケージ導入)
 sudo apt update
-
-sudo apt install ca-certificates curl gnupg lsb-release
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
+sudo apt install -y apt-transport-https
+ 
+ # dockerパッケージリポジトリ追加
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+ 
+ # dockerEngineのインストール、確認
 sudo apt update
+sudo apt install docker-ce
+docker version
+ 
+ # docker起動（デーモン起動~コンテナ実行）
+sudo service docker start
+ 
+ # docker-compose のインストール、確認
+sudo apt install docker-compose -y
+doceker-compose version
 
-sudo apt install docker-ce docker-ce-cli containerd.io
-
-# docker can only be run with root user privileges by default, so add privileges to the user(https://phoenixnap.com/kb/docker-permission-denied)
-# sudo gpasswd -a $(whoami) docker
-# sudo chmod 666 /var/run/docker.sock
-
-# if vscode-docker extension is used. execute command "sudo chmod 666 /var/run/docker.sock"(TODO: this command must run every docker restart...)
-sudo groupadd -f docker
+# sudoなしでDockerコマンドを実行できるようにする
+# ref: https://www.lisz-works.com/entry/vscode-remotedev-docker-container
+sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
-
-### install Docker Compose ###
-
-# check install version from https://github.com/docker/compose/releases, and modify install version properly
-sudo curl -SL https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose

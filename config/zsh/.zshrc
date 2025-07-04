@@ -1,24 +1,23 @@
-### zinit ###
+# ---------------------------------------------------------
+# zinit
+# ---------------------------------------------------------
+
 declare -A ZINIT
 ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
 ZINIT[ZCOMPDUMP_PATH]="$XDG_STATE_HOME/zcompdump"
 source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-# zinit light-mode for \
-#     zdharma-continuum/zinit-annex-as-monitor \
-#     zdharma-continuum/zinit-annex-bin-gem-node \
-#     zdharma-continuum/zinit-annex-patch-dl \
-#     zdharma-continuum/zinit-annex-rust
-
-### path ###
+# ---------------------------------------------------------
+# path
+# ---------------------------------------------------------
 
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-### plugin ###
+# ---------------------------------------------------------
+# zinit plugins
+# ---------------------------------------------------------
 
 zinit wait lucid blockf light-mode for \
   atload'async_init' mafredri/zsh-async \
@@ -26,19 +25,11 @@ zinit wait lucid blockf light-mode for \
   zsh-users/zsh-completions \
   zdharma-continuum/fast-syntax-highlighting
 
-### fzf ###
+# ---------------------------------------------------------
+# fzf
+# ---------------------------------------------------------
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
-
-### ls-colors ###
-
-# alias ls='ls --color=auto'
-
-# dircolors(LS_COLORS)
-# これで上手くいくはずだが。。。
-# lsコマンドのデフォルトのフォルダ色の青も出ていない。どこでおかしくなったか確認が必要か
-# zinit ice atload'eval `dircolors $PWD/dircolors.ansi-universal`' as"null"
-# zinit light seebi/dircolors-solarized
 
 # ---------------------------------------------------------
 # zsh fuzzy completion and utility plugin with Deno.
@@ -61,19 +52,17 @@ zinit wait lucid light-mode for \
 
 export FZF_DEFAULT_OPTS='--reverse'
 
-### asdf ###
-export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
-source "${ASDF_DATA_DIR}/asdf.sh"
+# ---------------------------------------------------------
+# starship
+# ---------------------------------------------------------
 
-### starship ###
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME}"/starship/starship.toml
 zinit ice as"command" from"gh-r" atload'eval "$(starship init zsh)"'
 zinit light starship/starship
 
-### theme(lsd) ###
-
-# export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32"
+# ---------------------------------------------------------
+# theme(lsd)
+# ---------------------------------------------------------
 
 alias ls='lsd'
 alias l='ls -l'
@@ -84,7 +73,9 @@ alias lt='ls --tree'
 zinit ice as"command" from"gh-r" pick"lsd*/lsd"
 zinit light lsd-rs/lsd
 
-### keybind ###
+# ---------------------------------------------------------
+# key binds
+# ---------------------------------------------------------
 
 # bash base key bind
 bindkey \^U backward-kill-line
@@ -208,13 +199,5 @@ function widget::select-all() {
 zle -N widget::select-all
 zle_highlight=('paste:none')
 
-# pnpm
-export PNPM_HOME="/home/nishitani/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# bun completions
-[ -s "/home/nishitani/.local/share/bun/_bun" ] && source "/home/nishitani/.local/share/bun/_bun"
+# # bun completions
+# [ -s "/home/nishitani/.local/share/bun/_bun" ] && source "/home/nishitani/.local/share/bun/_bun"
