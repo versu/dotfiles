@@ -15,3 +15,8 @@ export GOPATH="$XDG_DATA_HOME/go"
 
 ### Bun ###
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
+
+# ---------------------------------------------------------
+# dotnet
+# ---------------------------------------------------------
+export DOTNET_ROOT=$HOME/.dotnet

@@ -14,6 +14,7 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
 
 # ---------------------------------------------------------
 # zinit plugins
