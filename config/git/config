@@ -1,9 +1,9 @@
 [user]
-	name = nishitani
+	name = versu
 	email = kindberwindow@gmail.com
 
 [ghq]
-    user = nishitani
+    user = versu
     root = ~/repos
 [core]
 	editor = code --wait
