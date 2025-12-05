@@ -6,3 +6,4 @@ fzf = "latest"
 dotnet = ["latest", "9.0.308"]
 "aqua:go-task/task" = "latest"
 powershell-core = "latest"
+ghq = "latest"
