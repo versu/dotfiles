@@ -1,2 +1,7 @@
 [tools]
 node = "latest"
+deno = "latest"
+go = "latest"
+fzf = "latest"
+dotnet = ["latest", "9.0.308"]
+"aqua:go-task/task" = "latest"

@@ -11,10 +11,7 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 # path
 # ---------------------------------------------------------
 
-export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
+# export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
 
 # ---------------------------------------------------------
 # zinit plugins
@@ -29,7 +26,6 @@ zinit wait lucid blockf light-mode for \
 # ---------------------------------------------------------
 # fzf
 # ---------------------------------------------------------
-
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 # ---------------------------------------------------------
@@ -203,7 +199,7 @@ zle_highlight=('paste:none')
 # ---------------------------------------------------------
 # mise
 # ---------------------------------------------------------
-eval "$(mise activate bash)"
+eval "$(mise activate zsh)"
 
 
 # # bun completions
