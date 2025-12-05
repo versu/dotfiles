@@ -11,7 +11,8 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 # path
 # ---------------------------------------------------------
 
-# export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
+# Claude Code
+export PATH="$HOME/.local/bin:$PATH"
 
 # ---------------------------------------------------------
 # zinit plugins

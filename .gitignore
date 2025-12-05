@@ -1,2 +1,13 @@
 .zcompdump
 .ai
+
+# ------------------------------------------
+# Claude Code related files
+# ------------------------------------------
+# 特定のディレクトリ内のすべてを除外
+config/claude/*
+
+# ただし、以下は除外しない
+!config/claude/commands
+!config/claude/CLAUDE.md
+!config/claude/settings.json

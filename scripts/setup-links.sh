@@ -4,23 +4,24 @@ source "$(dirname "$0")/common.sh"
 
 mkdir -p \
   "$XDG_CONFIG_HOME" \
-  "$XDG_STATE_HOME" 
+  "$XDG_STATE_HOME"
 
-# 除外したいディレクトリ名をここに追加
-EXCLUDE_DIRS=()
+# -------------------------------------------------------------------------------
+# 各種設定ファイルへのシンボリックリンクの作成
+# ※方針
+# 基本的にはセットアップスクリプト（setup-xx.sh）内で行う(ex. mise, claude-codeなど)
+# セットアップスクリプトがない場合（特にセットアップが必要ないもの）はここで行う
+# -------------------------------------------------------------------------------
 
-for entry in "$REPO_DIR/config/"*; do
-  name=$(basename "$entry")
-  skip=false
-  for ex in "${EXCLUDE_DIRS[@]}"; do
-    if [[ "$name" == "$ex" ]]; then
-      skip=true
-      break
-    fi
-  done
-  if ! $skip; then
-    ln -sfv "$entry" "$XDG_CONFIG_HOME/"
-  fi
-done
+# Git設定
+ln -sfv "$REPO_DIR/config/git" "$XDG_CONFIG_HOME/"
 
+# Starship設定
+ln -sfv "$REPO_DIR/config/starship" "$XDG_CONFIG_HOME/"
+
+# Zeno設定
+ln -sfv "$REPO_DIR/config/zeno" "$XDG_CONFIG_HOME/"
+
+# Zsh設定
+ln -sfv "$REPO_DIR/config/zsh" "$XDG_CONFIG_HOME/"
 ln -sfv "$XDG_CONFIG_HOME/zsh/.zshenv" "$HOME/.zshenv"

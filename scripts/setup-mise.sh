@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eux
+source "$(dirname "$0")/common.sh"
 
 sudo apt update -y && sudo apt install -y gpg sudo wget curl
 sudo install -dm 755 /etc/apt/keyrings
@@ -8,4 +9,8 @@ echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=amd64] http
 sudo apt update
 sudo apt install -y mise
 
+# 設定ファイルへのシンボリックを作成
+ln -sfv "$REPO_DIR/config/mise" "$XDG_CONFIG_HOME/"
+
+# ツールのインストール
 mise install
