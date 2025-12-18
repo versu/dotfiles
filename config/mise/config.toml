@@ -8,3 +8,4 @@ dotnet = ["latest", "9.0.308"]
 powershell-core = "latest"
 ghq = "latest"
 "github:cli/cli" = "latest"
+"java" = "latest"
