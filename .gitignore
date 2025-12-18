@@ -11,3 +11,8 @@ config/claude/*
 !config/claude/commands
 !config/claude/CLAUDE.md
 !config/claude/settings.json
+
+# ------------------------------------------
+# company git coinfig files
+# ------------------------------------------
+gitconfig-*
