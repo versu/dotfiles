@@ -16,7 +16,10 @@ code --install-extension takumii.markdowntable
 # code --install-extension ms-python.python
  
 ### C# ###
+# csharp development kit
 # code --install-extension ms-dotnettools.csdevkit
+# .editorconfig support
+# code --install-extension editorconfig.editorconfig
 
 ### shell ###
 # linter
