@@ -11,6 +11,8 @@ code --install-extension dotjoshjohnson.xml
 code --install-extension christian-kohler.path-intellisense
 # markdown table formatter
 code --install-extension takumii.markdowntable
+# markdown preview enhanced
+code --install-extension shd101wyy.markdown-preview-enhanced
  
 ### Python ##
 # code --install-extension ms-python.python
