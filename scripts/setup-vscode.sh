@@ -28,3 +28,11 @@ code --install-extension shd101wyy.markdown-preview-enhanced
 code --install-extension foxundermoon.shell-format
 # formatter
 code --install-extension timonwong.shellcheck
+
+### Claude Code ###
+
+# Claude code extension
+code --install-extension anthropic.claude-code
+
+# display Claude ratelimit status in the vscode status bar
+code --install-extension long-kudo.vscode-claude-status
